@@ -7,6 +7,15 @@ Steps to reproduce Test:
 ```npm run test```
 
 
+Things I would have improved on if I had more time:
+* Add more styling to make it look nice.
+* Create three different columns for the input
+* Create a button that would change the transition. Currently the way it works in on text change.
+* Change the transitions so that it makes a little bit more sense, but I would have used another library for this.
+* Upgrade the tests to have end to end tests rather than just unit tests.
+* Create logic for different triangles like obtuse, acute and right angle.
+* Make the css relate further to what type of triangle it is.
+
 INSTRUCTIONS
 
 Please create a view that will contain 3 inputs which
