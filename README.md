@@ -1,8 +1,8 @@
 Take Home exam for Tradeshift Go
 
 Steps to reproduce Test:
-npm install
-npm run test
+```npm install```
+```npm run test```
 
 
 INSTRUCTIONS
