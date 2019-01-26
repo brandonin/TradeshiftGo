@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, TextInput, StyleSheet, Text, View } from 'react-native';
-
+// import Triangle from "./Triangle";
 export default class App extends React.Component {
   state = {
     sides: {
@@ -79,6 +79,9 @@ export default class App extends React.Component {
             {this.state.triangleTypes.map((value, key) => {
               return <Text key={key}>{value}</Text>;
             })}
+
+            <View style={styles.triangle} />
+            {/* <Triangle sides={this.state.sides}/> */}
         </View>
       </View>
     );
@@ -114,4 +117,15 @@ const styles = StyleSheet.create({
     paddingLeft: 25,
     paddingTop: 15,
   },
+  triangle: {
+    width: 0,
+    height: 0,
+    borderLeftWidth: 50,
+    borderLeftColor: "transparent",
+    borderRightColor: "transparent",
+    borderRightWidth: 50,
+    borderBottomWidth: 100,
+    borderBottomColor: 'red',
+  }
+
 });
