@@ -1,52 +1,52 @@
 import React from 'react';
-import { Image, TextInput, StyleSheet, Text, View } from 'react-native';
-// import Triangle from "./Triangle";
+import { NativeModules, LayoutAnimation, Image, TextInput, StyleSheet, Text, View } from 'react-native';
+const { UIManager } = NativeModules;
+UIManager.setLayoutAnimationEnabledExperimental &&
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+
 export default class App extends React.Component {
   state = {
-    sides: {
-      first: "2",
-      second: "3",
-      third: "2",
+    inputs: {
+      first: "20",
+      second: "30",
+      third: "20",
     },
-    triangleTypes: []
+    triangleTypes: "",
   }
 
   componentDidMount = () => {
-    this.determineTriangleType();
+    this.determineTriangleTypeAndSides();
   }
 
 
   handleChange = async (key, value) => {
-    let sides = {...this.state.sides};
-    sides[key] = value;
-    await this.setState({sides});
-    this.determineTriangleType();
+    let inputs = {...this.state.inputs};
+    inputs[key] = value;
+    await this.setState({inputs});
+    this.determineTriangleTypeAndSides();
   }
 
-  determineTriangleType = () => {
-    const {first, second, third} = this.state.sides;
+  determineTriangleTypeAndSides = () => {
+    const {first, second, third} = this.state.inputs;
     let hypotenuse = -Infinity;
     let hypotenuseKey;
-    for (const [key, value] of Object.entries(this.state.sides)) {
+    for (const [key, value] of Object.entries(this.state.inputs)) {
       if (value > hypotenuse) {
         hypotenuse = value;
         hypotenuseKey = key;
       }
     }
-    let [side1, side2] = assignSides(this.state.sides);
-    let triangleTypes = [];
+    let [side1, side2] = assignSides(this.state.inputs);
+    let triangleTypes;
 
     // triangle by sides
-    if (hypotenuse === side1 && side1 === side2) triangleTypes.push("equilateral", "equilangular");
-    else if (hypotenuse === side1 || hypotenuse === side2 || side1 === side2) triangleTypes.push("isosceles");
-    else triangleTypes.push('scalene');
+    if (hypotenuse === side1 && side1 === side2) triangleTypes = "equilateral";
+    else if (hypotenuse === side1 || hypotenuse === side2 || side1 === side2) triangleTypes = "isosceles";
+    else triangleTypes = 'scalene';
 
-    // triangle by angles
-    if (Math.pow(hypotenuse, 2) == Math.pow(side1, 2) + Math.pow(side2, 2)) triangleTypes.push("right");
-    if (Math.pow(hypotenuse, 2) < Math.pow(side1, 2) + Math.pow(side2, 2)) triangleTypes.push("acute");
-    if (Math.pow(hypotenuse, 2) > Math.pow(side1, 2) + Math.pow(side2, 2)) triangleTypes.push("obtuse");
-
-    this.setState({triangleTypes});
+    if (this.inputIsNonZero()) {
+      this.setState({triangleTypes, hypotenuse, side1, side2});
+    }
     function assignSides(object) {
       for (const [key, value] of Object.entries(object)) {
         if (key === hypotenuseKey) {
@@ -62,26 +62,45 @@ export default class App extends React.Component {
     }
   }
 
+  inputIsNonZero = () => {
+    return Object.values(this.state.inputs).indexOf('') < 0 &&
+      Object.values(this.state.inputs).indexOf('0') < 0;
+  }
+
+  dynamicStyling = () => {
+    LayoutAnimation.easeInEaseOut();
+    return {
+      borderLeftWidth: parseInt(this.state.side1),
+      borderRightWidth: parseInt(this.state.side2),
+      borderBottomWidth: parseInt(this.state.hypotenuse),
+    }
+  }
+
   render() {
     const tsLogo = {
         uri: 'https://tradeshift.com/wp-content/themes/Tradeshift/img/brand/logo-black.png',
     };
+    const { triangleTypes } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.topBanner}>
           <Image source={tsLogo} style={{width: 332, height: 40}}/>
         </View>
         <View style={styles.textContainer}>
-            <TextInput keyboardType="numeric" value={this.state.sides.first} placeholder="hello" onChangeText={(value) => this.handleChange('first', value)}></TextInput>
-            <TextInput keyboardType="numeric" value={this.state.sides.second} placeholder="hello" onChangeText={(value) => this.handleChange('second', value)}></TextInput>
-            <TextInput keyboardType="numeric" value={this.state.sides.third} placeholder="hello" onChangeText={(value) => this.handleChange('third', value)}></TextInput>
-            <Text>Types of Traingle this is:</Text>
-            {this.state.triangleTypes.map((value, key) => {
-              return <Text key={key}>{value}</Text>;
-            })}
-
-            <View style={styles.triangle} />
-            {/* <Triangle sides={this.state.sides}/> */}
+          <View style={{ flexDirection:'row' }}>
+            <Text>Length 1: </Text>
+            <TextInput keyboardType="numeric" style={styles.input} value={this.state.inputs.first} placeholder="Length 1" onChangeText={(value) => this.handleChange('first', value)}></TextInput>
+          </View>
+          <View style={{ flexDirection:'row' }}>
+            <Text>Length 2: </Text>
+            <TextInput keyboardType="numeric" style={styles.input} value={this.state.inputs.second} placeholder="Length 2" onChangeText={(value) => this.handleChange('second', value)}></TextInput>
+          </View>
+          <View style={{ flexDirection:'row' }}>
+            <Text>Length 3: </Text>
+            <TextInput keyboardType="numeric" style={styles.input} value={this.state.inputs.third} placeholder="Length 3" onChangeText={(value) => this.handleChange('third', value)}></TextInput>
+          </View>
+          <Text>Type of Triangle: {triangleTypes}</Text>
+          <View style = {[styles.triangle, this.dynamicStyling()]} />
         </View>
       </View>
     );
@@ -120,12 +139,12 @@ const styles = StyleSheet.create({
   triangle: {
     width: 0,
     height: 0,
-    borderLeftWidth: 50,
     borderLeftColor: "transparent",
     borderRightColor: "transparent",
-    borderRightWidth: 50,
-    borderBottomWidth: 100,
     borderBottomColor: 'red',
+  },
+  input: {
+    backgroundColor: "rgba(180, 180, 180, 0.5)",
+    textAlign: "center",
   }
-
 });

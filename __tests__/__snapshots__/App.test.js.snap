@@ -1,0 +1,451 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component matches snapsot 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+      "paddingTop": 40,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#00b0ff",
+        "borderBottomWidth": 3,
+        "paddingBottom": 10,
+        "paddingTop": 10,
+        "width": "100%",
+      }
+    }
+  >
+    <Component
+      source={
+        Object {
+          "uri": "https://tradeshift.com/wp-content/themes/Tradeshift/img/brand/logo-black.png",
+        }
+      }
+      style={
+        Object {
+          "height": 40,
+          "width": 332,
+        }
+      }
+    />
+  </Component>
+  <Component
+    style={
+      Object {
+        "paddingLeft": 15,
+        "paddingRight": 15,
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        underlineColorAndroid="transparent"
+      >
+        Length 1: 
+      </TextInput>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onChangeText={[Function]}
+        placeholder="Length 1"
+        style={
+          Object {
+            "backgroundColor": "rgba(180, 180, 180, 0.5)",
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value="20"
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        underlineColorAndroid="transparent"
+      >
+        Length 2: 
+      </TextInput>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onChangeText={[Function]}
+        placeholder="Length 2"
+        style={
+          Object {
+            "backgroundColor": "rgba(180, 180, 180, 0.5)",
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value="30"
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        underlineColorAndroid="transparent"
+      >
+        Length 3: 
+      </TextInput>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onChangeText={[Function]}
+        placeholder="Length 3"
+        style={
+          Object {
+            "backgroundColor": "rgba(180, 180, 180, 0.5)",
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value="20"
+      />
+    </Component>
+    <Component>
+      Type of Triangle: 
+      isosceles
+    </Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "red",
+            "borderLeftColor": "transparent",
+            "borderRightColor": "transparent",
+            "height": 0,
+            "width": 0,
+          },
+          Object {
+            "borderBottomWidth": 30,
+            "borderLeftWidth": 20,
+            "borderRightWidth": 20,
+          },
+        ]
+      }
+    />
+  </Component>
+</Component>
+`;
+
+exports[`App Component renders correctly 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+      "paddingTop": 40,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#00b0ff",
+        "borderBottomWidth": 3,
+        "paddingBottom": 10,
+        "paddingTop": 10,
+        "width": "100%",
+      }
+    }
+  >
+    <Component
+      source={
+        Object {
+          "uri": "https://tradeshift.com/wp-content/themes/Tradeshift/img/brand/logo-black.png",
+        }
+      }
+      style={
+        Object {
+          "height": 40,
+          "width": 332,
+        }
+      }
+    />
+  </Component>
+  <Component
+    style={
+      Object {
+        "paddingLeft": 15,
+        "paddingRight": 15,
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        underlineColorAndroid="transparent"
+      >
+        Length 1: 
+      </TextInput>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onChangeText={[Function]}
+        placeholder="Length 1"
+        style={
+          Object {
+            "backgroundColor": "rgba(180, 180, 180, 0.5)",
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value="20"
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        underlineColorAndroid="transparent"
+      >
+        Length 2: 
+      </TextInput>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onChangeText={[Function]}
+        placeholder="Length 2"
+        style={
+          Object {
+            "backgroundColor": "rgba(180, 180, 180, 0.5)",
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value="30"
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        underlineColorAndroid="transparent"
+      >
+        Length 3: 
+      </TextInput>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onChangeText={[Function]}
+        placeholder="Length 3"
+        style={
+          Object {
+            "backgroundColor": "rgba(180, 180, 180, 0.5)",
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value="20"
+      />
+    </Component>
+    <Component>
+      Type of Triangle: 
+      isosceles
+    </Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "red",
+            "borderLeftColor": "transparent",
+            "borderRightColor": "transparent",
+            "height": 0,
+            "width": 0,
+          },
+          Object {
+            "borderBottomWidth": 30,
+            "borderLeftWidth": 20,
+            "borderRightWidth": 20,
+          },
+        ]
+      }
+    />
+  </Component>
+</Component>
+`;
+
+exports[`App Component should matche snapshot 1`] = `
+<Component
+  style={
+    Object {
+      "flex": 1,
+      "paddingTop": 40,
+    }
+  }
+>
+  <Component
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#00b0ff",
+        "borderBottomWidth": 3,
+        "paddingBottom": 10,
+        "paddingTop": 10,
+        "width": "100%",
+      }
+    }
+  >
+    <Component
+      source={
+        Object {
+          "uri": "https://tradeshift.com/wp-content/themes/Tradeshift/img/brand/logo-black.png",
+        }
+      }
+      style={
+        Object {
+          "height": 40,
+          "width": 332,
+        }
+      }
+    />
+  </Component>
+  <Component
+    style={
+      Object {
+        "paddingLeft": 15,
+        "paddingRight": 15,
+      }
+    }
+  >
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Component>
+        Length 1: 
+      </Component>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onChangeText={[Function]}
+        placeholder="Length 1"
+        style={
+          Object {
+            "backgroundColor": "rgba(180, 180, 180, 0.5)",
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value="20"
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Component>
+        Length 2: 
+      </Component>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onChangeText={[Function]}
+        placeholder="Length 2"
+        style={
+          Object {
+            "backgroundColor": "rgba(180, 180, 180, 0.5)",
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value="30"
+      />
+    </Component>
+    <Component
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Component>
+        Length 3: 
+      </Component>
+      <TextInput
+        allowFontScaling={true}
+        keyboardType="numeric"
+        onChangeText={[Function]}
+        placeholder="Length 3"
+        style={
+          Object {
+            "backgroundColor": "rgba(180, 180, 180, 0.5)",
+            "textAlign": "center",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value="20"
+      />
+    </Component>
+    <Component>
+      Type of Triangle: 
+      isosceles
+    </Component>
+    <Component
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "red",
+            "borderLeftColor": "transparent",
+            "borderRightColor": "transparent",
+            "height": 0,
+            "width": 0,
+          },
+          Object {
+            "borderBottomWidth": 30,
+            "borderLeftWidth": 20,
+            "borderRightWidth": 20,
+          },
+        ]
+      }
+    />
+  </Component>
+</Component>
+`;

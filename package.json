@@ -4,15 +4,34 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "jest": {
+    "preset": "react-native",
+    "setupFilesAfterEnv": ["<rootDir>__tests__/setup/setupEnzyme.js"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/setup/",
+      "<rootDir>/node_modules"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
   },
   "dependencies": {
     "expo": "^32.0.0",
     "react": "16.5.0",
+    "react-dom": "^16.7.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "babel-preset-expo": "^5.0.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^24.0.0",
+    "jest-serializer-enzyme": "^1.0.0"
   },
   "private": true
 }
