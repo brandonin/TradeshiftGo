@@ -54,7 +54,7 @@ describe('App Component', () => {
                 })
                 await wrapper.instance().determineTriangleTypeAndSides();
                 state = wrapper.state();
-                expect(state.triangleTypes).toBe('equilateral');
+                expect(state.triangleType).toBe('equilateral');
             });
 
             it('should determine an isosceles if two sides are equal', async () => {
@@ -67,7 +67,7 @@ describe('App Component', () => {
                 })
                 await wrapper.instance().determineTriangleTypeAndSides();
                 state = wrapper.state();
-                expect(state.triangleTypes).toBe('isosceles');
+                expect(state.triangleType).toBe('isosceles');
             });
 
             it('should determine an scalene if no sides are equal', async () => {
@@ -80,7 +80,7 @@ describe('App Component', () => {
                 })
                 await wrapper.instance().determineTriangleTypeAndSides();
                 state = wrapper.state();
-                expect(state.triangleTypes).toBe('scalene');
+                expect(state.triangleType).toBe('scalene');
             });
         })
 
@@ -94,8 +94,8 @@ describe('App Component', () => {
                 expect(parseInt(state.hypotenuse)).toBeGreaterThanOrEqual(parseInt(state.side2));
             });
 
-            it('should calculate triangleTypes', () => {
-                expect(state.triangleTypes).toEqual('isosceles');
+            it('should calculate triangleType', () => {
+                expect(state.triangleType).toEqual('isosceles');
             });
 
             it('should calculate side1', () => {

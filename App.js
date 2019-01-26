@@ -11,7 +11,7 @@ export default class App extends React.Component {
       second: "30",
       third: "20",
     },
-    triangleTypes: "",
+    triangleType: "",
   }
 
   componentDidMount = () => {
@@ -37,16 +37,10 @@ export default class App extends React.Component {
       }
     }
     let [side1, side2] = assignSides(this.state.inputs);
-    let triangleTypes;
 
-    // triangle by sides
-    if (hypotenuse === side1 && side1 === side2) triangleTypes = "equilateral";
-    else if (hypotenuse === side1 || hypotenuse === side2 || side1 === side2) triangleTypes = "isosceles";
-    else triangleTypes = 'scalene';
+    const triangleType = calculateTriangleType(hypotenuse, side1, side2);
+    if (this.inputIsNonZero()) this.setState({triangleType, hypotenuse, side1, side2});
 
-    if (this.inputIsNonZero()) {
-      this.setState({triangleTypes, hypotenuse, side1, side2});
-    }
     function assignSides(object) {
       for (const [key, value] of Object.entries(object)) {
         if (key === hypotenuseKey) {
@@ -59,6 +53,14 @@ export default class App extends React.Component {
         }
       }
       return [side1, side2];
+    }
+
+    function calculateTriangleType(hypotenuse, side1, side2) {
+      let triangleType;
+      if (hypotenuse === side1 && side1 === side2) triangleType = "equilateral";
+      else if (hypotenuse === side1 || hypotenuse === side2 || side1 === side2) triangleType = "isosceles";
+      else triangleType = 'scalene';
+      return triangleType;
     }
   }
 
@@ -80,7 +82,7 @@ export default class App extends React.Component {
     const tsLogo = {
         uri: 'https://tradeshift.com/wp-content/themes/Tradeshift/img/brand/logo-black.png',
     };
-    const { triangleTypes } = this.state;
+    const { triangleType } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.topBanner}>
@@ -99,7 +101,7 @@ export default class App extends React.Component {
             <Text>Length 3: </Text>
             <TextInput keyboardType="numeric" style={styles.input} value={this.state.inputs.third} placeholder="Length 3" onChangeText={(value) => this.handleChange('third', value)}></TextInput>
           </View>
-          <Text>Type of Triangle: {triangleTypes}</Text>
+          <Text>Type of Triangle: {triangleType}</Text>
           <View style = {[styles.triangle, this.dynamicStyling()]} />
         </View>
       </View>
